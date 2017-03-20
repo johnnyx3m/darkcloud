@@ -1,0 +1,55 @@
+
+  <% if(details.error){ %>
+    <h2 style="color:#D5202A"><%= details.error %></h2>
+  <%} else {%>
+    <% if(details.display_location) {%>
+      <h2>Weather details for <%= details.display_location.city%>, <%= details.display_location.state_name%></h2>
+
+      <table class="table table-bordered" width="100%">
+        <tr>
+          <td width="30%">City:</td>
+          <th><%= details.display_location.city%></th>
+        </tr>
+        <tr>
+          <td>State:</td>
+          <th><%= details.display_location.state_name%></th>
+        </tr>
+        <tr>
+          <td>Country:</td>
+          <th><%= details.display_location.country%></th>
+        </tr>
+        <tr>
+          <td>Longitude:</td>
+          <th><%= details.display_location.longitude%></th>
+        </tr>
+        <tr>
+          <td>Latitude:</td>
+          <th><%= details.display_location.latitude%></th>
+        </tr>
+        <tr>
+          <td>Elevation:</td>
+          <th><%= details.display_location.elevation%></th>
+        </tr>
+        <tr>
+          <td>Temperature:</td>
+          <th><%= details.temp_f%>&deg;F (<%= details.temp_c%>&deg;C)</th>
+        </tr>
+        <tr>
+          <td>Wind:</td>
+          <th><%= details.wind_string%></th>
+        </tr>
+        <tr>
+          <td>Dew Point:</td>
+          <th><%= details.dewpoint_f%>&deg;F (<%= details.dewpoint_c%>&deg;C)</th>
+        </tr>
+        <tr>
+          <td>Feels Like:</td>
+          <th><%= details.feelslike_f%>&deg;F (<%= details.feelslike_c%>&deg;C)</th>
+        </tr>
+        <tr>
+          <td>Weather:</td>
+          <th><%= details.weather%> <img src=<%= details.icon_url%> height="25"></th>
+        </tr>
+      </table>
+    <%}%>
+  <%}%>

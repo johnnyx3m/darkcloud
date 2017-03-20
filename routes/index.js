@@ -1,9 +1,19 @@
 var express = require('express');
 var router = express.Router();
+var Forecast = require("./models/forecast-model")
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  Forecast.find().then(result => {
+    let data = {
+      data: result,
+      details: {}
+    }
+    if(result.length){
+      data.details = result[0];
+    }
+    res.render('index', data);
+  })
 });
+
 
 module.exports = router;
